@@ -32,7 +32,32 @@ createDiv(itemName){
 
     editButton.addEventListener('click',() => this.edit(input));
 
-    removeButton.addEventListener('click',() => this.remove(itemBox));
+    
+    editButton.onclick= change;
+
+    removeButton.onclick= are;
+
+    function are() {
+        let result = 'This will now get deleted';
+        if (confirm(result) === true)  {
+            this.parentNode.remove();
+            
+        }
+         else {
+             return false;
+         }
+    }
+
+    function change() {
+        let endre = 'Do you want to change this?';
+        if (confirm(endre) === true)  {
+            this.parentNode.edit();
+            
+        }
+         else {
+             return false;
+         }
+    }
 
 }
 
@@ -58,3 +83,5 @@ window.addEventListener('keydown', (e) => {
         check();
     }
 })
+
+
