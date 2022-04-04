@@ -90,7 +90,7 @@ opacity: 0.6;
     font-size: 1.4rem;
 }
 
-.editButton{
+.editButton, .confirmButton{
     font-size: 1.4rem;
     margin: 0 0.3rem;
     background: none;
@@ -98,9 +98,10 @@ opacity: 0.6;
     border: none;
     color: limegreen;
     cursor: pointer;
+    text-transform: uppercase;
 }
 
-.removeButton{
+.removeButton, .cancelButton{
     font-size: 1.4rem;
     margin: 0 0.3rem;
     background: none;
@@ -111,6 +112,4 @@ opacity: 0.6;
     cursor: pointer;
 }
 
-.cancelButton{
-    background-color: red;
-}
+

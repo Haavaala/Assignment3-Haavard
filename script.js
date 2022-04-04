@@ -26,20 +26,6 @@ createDiv(itemName){
     editButton.innerHTML = "EDIT";
     editButton.classList.add('editButton');
     
-    function cancel() {
-        let cancelButton = document.createElement('button');
-        let canceltext = document.createTextNode('Cancel');
-        cancelButton.appendChild(canceltext);
-        document.querySelector('.container').appendChild(cancelButton);
-        
-    }
-
-    function createConfirmButton() {
-        let confirmButton = document.createElement('button');
-        let confirmtext = document.createTextNode('Confirm');
-        confirmButton.appendChild(confirmtext);
-        document.querySelector('.container').appendChild(confirmButton);
-    };
 
     let removeButton = document.createElement('button')
     removeButton.innerHTML = "REMOVE";
@@ -51,16 +37,37 @@ createDiv(itemName){
     itemBox.appendChild(editButton);
     itemBox.appendChild(removeButton);
     
-    
-    
+    let confirmButton = document.createElement('button');
+    let confirmtext = document.createTextNode('Confirm');
+    confirmButton.appendChild(confirmtext);
+    document.querySelector('.container').appendChild(confirmButton);
+    confirmButton.classList.add('confirmButton')
+    confirmButton.style.display = 'none';
+
+    let cancelButton = document.createElement('button');
+        let canceltext = document.createTextNode('Cancel');
+        cancelButton.appendChild(canceltext);
+        document.querySelector('.container').appendChild(cancelButton);
+        cancelButton.classList.add('cancelButton')
+        cancelButton.style.display = 'none';
+        
     
 
+    
+        
+
+    function cancel(){
+        cancelButton.style.display = 'block';
+    }
+    
+    function createConfirmButton(){
+        confirmButton.style.display = 'block';
+    }
 
 function buttons() {
     cancel();
     createConfirmButton();
 }
-
 
 
 
@@ -70,8 +77,11 @@ function buttons() {
 
     addButton.onclick= legg;
 
-    removeButton.onclick= are;
+    confirmButton.onclick= change;
 
+     removeButton.onclick= are;
+
+    
 
     function legg() {
         let tilegg = 'Do you want to add this?';
@@ -90,7 +100,9 @@ function buttons() {
         let result = 'This will now get deleted';
         if (confirm(result) === true)  {
             this.parentNode.remove();
-            
+            cancelButton.style.display = 'none';
+            confirmButton.style.display = 'none';
+
         }
          else {
              return false;
@@ -99,7 +111,7 @@ function buttons() {
 
     function change() {
         let endre = 'Are you sure you want to change this?';
-        if (confirm(endre) === true)  {
+        if (confirm(endre) !== true)  {
             this.parentNode.edit();
             
         }
@@ -126,10 +138,11 @@ function check(){
     }
 }
 
-addButton.addEventListener('click', check);
+addButton.addEventListener('click', check, );
 window.addEventListener('keydown', (e) => {
     if(e.which == 13){
         check();
+        
     }
 })
 
