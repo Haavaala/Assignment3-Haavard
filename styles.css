@@ -71,7 +71,6 @@ opacity: 0.6;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
     margin-top: 2rem;
 }
 
@@ -90,6 +89,12 @@ opacity: 0.6;
     font-size: 1.4rem;
 }
 
+.item_p {
+    display: flex;
+}
+
+
+
 .editButton, .confirmButton{
     font-size: 1.4rem;
     margin: 0 0.3rem;
@@ -100,6 +105,7 @@ opacity: 0.6;
     cursor: pointer;
     text-transform: uppercase;
 }
+
 
 .removeButton, .cancelButton{
     font-size: 1.4rem;
