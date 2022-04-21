@@ -1,16 +1,17 @@
-
-
 const addButton = document.querySelector(".addButton");
 let input1 = document.querySelector(".input");
 let input = document.querySelector(".input");
 const container = document.querySelector(".container");
 const editButton1 = document.querySelectorAll(".editButton");
-const removeButton1 = document.querySelectorAll(".removeButton")
+const removeButton1 = document.querySelectorAll(".removeButton");
+const itemInput = document.querySelectorAll(".item_input");
+const itemP = document.querySelectorAll('.item_p')
 ////task II 1 b
 const clearButton = document.querySelector(".clearButton");
 
+
 //creates a div for the input section
-//itemName is the value in the list section below the input bar. 
+//itemName is the value in the list section below the input bar.
 class item {
   constructor(itemName) {
     this.createDiv(itemName);
@@ -50,7 +51,7 @@ class item {
     itemBox.appendChild(input);
     itemBox.appendChild(editButton);
     itemBox.appendChild(removeButton);
-    
+
     //creates the confirm and cancel buttons for the edit function, so the user can edit,
     //cancel if he or she doesnt want to make a change, and confirm when the change is made
     //they are displayed as "none" to start with
@@ -74,15 +75,17 @@ class item {
     function cancel() {
       cancelButton.style.display = "block";
     }
-//task I 2a
+    //task I 2a
     function createConfirmButton() {
       confirmButton.style.display = "block";
     }
-//function for showing the confirm and cancel buttons
+
+    //function for showing the confirm and cancel buttons
     function buttons() {
       cancel();
       createConfirmButton();
     }
+
     //function for removing cancel and confirm buttons
     //this is for when the cancel or confirm button is pressed
     function removeboth() {
@@ -98,25 +101,23 @@ class item {
 
     //makes the previous value stay
     //task 2b
-function discard(){
-    input.value = itemName;
-}
-//function for the cancel button
-    function dontchange(){
-        removeboth();
-        discard();
+    function discard() {
+      input.value = itemName;
     }
 
-
+    //function for the cancel button
+    function dontchange() {
+      removeboth();
+      discard();
+    }
 
     //lets the user edit the text when clicking the "edit" button
     //2. when the user presses the update/edit button/icon, a text field should be made available to the user, underneath the list where the user can enter the new content for the respective item.
-   //read the readme file.
+    //read the readme file.
     editButton.addEventListener("click", () => this.edit(input));
-    
+
     //the confirm and cancel buttons will appear
     editButton.onclick = buttons;
-    
 
     //confirmation message when adding new items to the list
     addButton.onclick = legg;
@@ -143,7 +144,7 @@ function discard(){
     }
 
     //the function for the confirmation message when deleting/removing an item
-    //task 1 a) Implement also a dialog that ask the user to confirm before the item is deleted, in case the user  pressed the “delete” button by mistake.  
+    //task 1 a) Implement also a dialog that ask the user to confirm before the item is deleted, in case the user  pressed the “delete” button by mistake.
     function are() {
       let result = "This will now get deleted";
       if (confirm(result) === true) {
@@ -193,3 +194,109 @@ window.addEventListener("keydown", (e) => {
     check();
   }
 });
+
+
+
+
+
+removeButton1.forEach((button) => {
+  button.addEventListener('click', () => {
+    let result = "This will now get deleted";
+  if (confirm(result) === true) {
+    button.parentNode.parentNode.remove();
+    cancelButton1.style.display = "none";
+    confirmButton1.style.display = "none";
+  } else {
+    return false;
+  }
+})})
+
+
+let confirmButton1 = document.createElement("button");
+    let confirmtext1 = document.createTextNode("Confirm");
+    confirmButton1.appendChild(confirmtext1);
+    document.querySelector(".buttons").appendChild(confirmButton1);
+    confirmButton1.classList.add("confirmButton");
+    confirmButton1.style.display = "none";
+
+    let cancelButton1 = document.createElement("button");
+    let canceltext1 = document.createTextNode("Cancel");
+    cancelButton1.appendChild(canceltext1);
+    document.querySelector(".buttons").appendChild(cancelButton1);
+    cancelButton1.classList.add("cancelButton");
+    cancelButton1.style.display = "none";
+
+
+function cancel1() {
+  cancelButton1.style.display = "block";
+}
+//task I 2a
+function createConfirmButton1() {
+  confirmButton1.style.display = "block";
+}
+
+//function for showing the confirm and cancel buttons
+function buttons1() {
+  cancel1();
+  createConfirmButton1();
+}
+
+
+
+
+
+//function for the cancel button
+function dontchange1() {
+  removeboth1();
+  discard1();
+}
+
+function discard1() {
+    //previous value
+}
+
+//function for removing cancel and confirm buttons
+//this is for when the cancel or confirm button is pressed
+function removeboth1() {
+  cancelButton1.style.display = "none";
+  confirmButton1.style.display = "none";
+}
+//creates confirmation message and removes "cancel" and "confirm" buttons so they dont show after they are clicked
+//task 2a
+function onconfirm1() {
+  change1();
+  removeboth1();
+}
+
+
+
+//when edit button is pressed, the confirm and cancel button appear
+editButton1.forEach((button1) => {
+  button1.addEventListener('click', () => {
+    itemInput.disabled = false;
+    cancel1();
+    createConfirmButton1();
+
+  });
+
+cancelButton1.onclick= dontchange1;
+
+confirmButton1.onclick= onconfirm1;
+})
+
+
+
+function change1() {
+  let endre = "Are you sure you want to change this?";
+  if (confirm(endre) !== true) {
+    this.parentNode.edit();
+  } else {
+    return false;
+  }
+}
+    
+
+
+
+
+
