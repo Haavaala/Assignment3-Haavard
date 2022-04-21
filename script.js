@@ -196,9 +196,7 @@ window.addEventListener("keydown", (e) => {
 });
 
 
-
-
-
+//the function for the already existing removebutton
 removeButton1.forEach((button) => {
   button.addEventListener('click', () => {
     let result = "This will now get deleted";
@@ -211,7 +209,7 @@ removeButton1.forEach((button) => {
   }
 })})
 
-
+//creating the confirm and cancel button 
 let confirmButton1 = document.createElement("button");
     let confirmtext1 = document.createTextNode("Confirm");
     confirmButton1.appendChild(confirmtext1);
@@ -226,7 +224,7 @@ let confirmButton1 = document.createElement("button");
     cancelButton1.classList.add("cancelButton");
     cancelButton1.style.display = "none";
 
-
+//task I 2b
 function cancel1() {
   cancelButton1.style.display = "block";
 }
@@ -252,7 +250,7 @@ function dontchange1() {
 }
 
 function discard1() {
-    //previous value
+    //should have a function to get the previous value
 }
 
 //function for removing cancel and confirm buttons
@@ -294,9 +292,3 @@ function change1() {
     return false;
   }
 }
-    
-
-
-
-
-
